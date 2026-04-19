@@ -27,7 +27,7 @@ module.exports.login= async(req,res,next)=>{
        const user =await User.findOne({username});
      if(!user) 
         return res.json({msg:"Incorrect username or password",status:false});
-    const isPasswordValid=await bcrypt.compare(username,user.password);
+    const isPasswordValid=await bcrypt.compare(password,user.password);
     if(!isPasswordValid)
         return res.json({msg:"Incorrect username or password",status:false});  
     delete user.password; 
@@ -55,7 +55,6 @@ module.exports.setAvatar=async(req,res,next)=>{
     next(ex);
    }
 };
-
 
 module.exports.getAllUsers=async(req,res,next)=>{
    try{

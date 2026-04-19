@@ -1,6 +1,3 @@
-
-
-
 import React,{useState,useEffect,useRef} from 'react'
 import styled from "styled-components";
 import axios from 'axios';
@@ -10,6 +7,7 @@ import { allUsersRoute,host } from '../utils/ApiRoutes';
 import Welcome from '../components/Welcome';
 import Contacts from '../components/Contacts';
 import ChatContainer from '../components/ChatContainer';
+import Logout from '../components/Logout';
 function Chat() {
   const navigate = useNavigate();
   const socket = useRef();
@@ -67,16 +65,18 @@ function Chat() {
 
   return (
     <Container>
-      currentUser&& <div className="container">
+        
+       <div className="container">
+        <div className="logout-wrapper">
+        <Logout />
+      </div>
    <Contacts contacts={contacts}  changeChat={handleChatChange} />
    {
    currentChat===null?(<Welcome currentUser={currentUser}/>):(
       <ChatContainer currentChat={currentChat} socket={socket} />
     )
    }
-   
-     
-     
+
       </div>
     </Container>
   )
@@ -86,20 +86,29 @@ const Container = styled.div`
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  gap: 1rem;
   align-items: center;
   background-color: #131324;
+
   .container {
+    position: relative; /* 🔥 IMPORTANT for absolute logout positioning */
     height: 85vh;
     width: 85vw;
     background-color: #00000076;
     display: grid;
     grid-template-columns: 25% 75%;
+
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       grid-template-columns: 35% 65%;
     }
+  }
+
+  /* 🔥 Logout fixed top-right */
+  .logout-wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
   }
 `;
 export default Chat

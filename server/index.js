@@ -21,12 +21,18 @@ mongoose.connect(process.env.MONGO_URL,{
 .catch((err)=>{
   console.log(err.message);
 });
+
+
 app.get("/ping",(req,res)=>{
   return res.json({msg:"ping successfully"})
 })
+
+
 const server=app.listen(process.env.PORT,()=>{
     console.log(`server started at ${process.env.PORT}`);
 });
+
+
    const io=socket(server,{
     cors:{
       origin:"http://localhost:3000",

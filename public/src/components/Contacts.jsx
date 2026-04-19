@@ -1,5 +1,3 @@
-
-
 import React,{useState,useEffect} from 'react';
 import styled from 'styled-components';
 import Logo from "../Assets/logo.svg";
@@ -12,17 +10,6 @@ function Contacts({contacts,changeChat}) {
       // console.log("imo",contacts);
     }, [contacts]);
 
-    // useEffect( () => {
-    //   const x=async()=>{
-    //   const data = await JSON.parse(
-    //     localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-    //   );
-      
-    //   setCurrentUserName(data.username);
-    //   setCurrentUserImage(data.avatarImage);
-    // }
-    // x();
-    // }, []);
 
     useEffect(() => {
       const x = async () => {
@@ -50,7 +37,7 @@ function Contacts({contacts,changeChat}) {
             <Container>
                 <div className="brand">
                     <img src={Logo} alt="logo" />
-                    <h3>MJ</h3>
+                    <h3>ChatApp</h3>
                 </div>
                 <div className="contacts">
             {  contacts.map((contact,index)=>{
@@ -169,3 +156,15 @@ const Container = styled.div`
   }
 `;
 export default Contacts
+
+ // useEffect( () => {
+    //   const x=async()=>{
+    //   const data = await JSON.parse(
+    //     localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+    //   );
+      
+    //   setCurrentUserName(data.username);
+    //   setCurrentUserImage(data.avatarImage);
+    // }
+    // x();
+    // }, []);

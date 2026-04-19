@@ -24,14 +24,6 @@ module.exports.getAllMessage = async (req, res, next) => {
     try {
         const { from, to } = req.body;
         console.log("Request from:", from, "to:", to);
-
-    //     const messages = await Messages.find({
-    //         users: {
-    //             $all: [from, to],
-    //         },
-    //     }).sort({ updatedAt: 1 });
-     
-    //    console.log(messages);
    
     const messages = await Messages.find({
         $or: [
@@ -54,6 +46,15 @@ module.exports.getAllMessage = async (req, res, next) => {
         next(ex);
     }
 };
+
+    //     const messages = await Messages.find({
+    //         users: {
+    //             $all: [from, to],
+    //         },
+    //     }).sort({ updatedAt: 1 });
+     
+    //    console.log(messages);
+
 // module.exports.getAllMessage=async(req,res,next)=>{
 //     try{
 //          const {from ,to}=req.body;

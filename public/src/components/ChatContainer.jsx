@@ -1,7 +1,5 @@
-
 import React,{useState,useEffect,useRef} from 'react';
 import styled from 'styled-components';
-import Logout from './Logout';
 import ChatInput from './ChatInput';
 import {v4 as uuidv4} from "uuid";
 import axios from 'axios';
@@ -10,7 +8,7 @@ function ChatContainer({currentChat,socket}) {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
-  useEffect(()=>{console.log("fucked",messages)});
+  useEffect(()=>{console.log("go there",messages)});
   useEffect(() => {
     const x=async()=>  {
         const data = await JSON.parse(
@@ -90,7 +88,6 @@ function ChatContainer({currentChat,socket}) {
             </div>
 
         </div>
-        <Logout/>
      </div>
   <div className="chat-messages">
     {  

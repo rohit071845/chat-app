@@ -16,12 +16,7 @@ to: {
     ref: "User",  // Reference to the User model
     required: true,
 },
-  //  users:Array,
-//   users: [{
-//     type: mongoose.Schema.Types.ObjectId,  // Array of ObjectIds
-//     ref: "User",  // Reference to the User model
-//     required: true,
-// }],
+
    sender:{
     type:mongoose.Schema.Types.ObjectId,
     ref:"User",
@@ -34,3 +29,10 @@ to: {
 );
 
  module.exports=mongoose.model("Messages",messageSchema);
+
+//  users:Array,
+//   users: [{
+//     type: mongoose.Schema.Types.ObjectId,  // Array of ObjectIds
+//     ref: "User",  // Reference to the User model
+//     required: true,
+// }],

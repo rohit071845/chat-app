@@ -1,6 +1,3 @@
-
-
-
 import React,{useState,useEffect} from 'react';
 import styled from 'styled-components';
 import Robot from "../Assets/robot.gif";

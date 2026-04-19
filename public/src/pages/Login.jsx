@@ -1,5 +1,3 @@
-
-
 import React,{useState,useEffect} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import styled from "styled-components";
@@ -81,7 +79,7 @@ function Login() {
         <form onSubmit={(event)=>handleSubmit(event)}>
            <div className="brand">
             <img src={Logo} alt="" />
-            <h1>Mj</h1>
+            <h1>ChatApp</h1>
            </div>
            <input 
            type="text"
